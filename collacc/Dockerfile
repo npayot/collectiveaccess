@@ -40,6 +40,7 @@ RUN wget https://github.com/collectiveaccess/providence/archive/master.zip \
   && mv providence-master/* /var/www/html/ \
   && mv providence-master/.htaccess /var/www/html/ \
   && rm /var/www/html/index.html \
+  && mkdir /var/www/html/media/collectiveaccess \
   && groupadd webdev \
   && chown -R root.webdev /var/www/html \
   && chmod 775 /var/www/html \
@@ -48,7 +49,8 @@ RUN wget https://github.com/collectiveaccess/providence/archive/master.zip \
   && find /var/www/html -type f -print0 | xargs -0 chmod 664 \
   && chmod 777 /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache \
   && chmod 777 /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
-  && chmod 777 /var/www/html/media
+  && chmod 777 /var/www/html/media \
+  && chmod 777 /var/www/html/media/collectiveaccess
 
 # --> print0 insere caractere nul entre chaque nom de dossier/fichier et xargs = applique a chaque ligne (donc nom) la commande suivante. xargs -0 : utilise comme separateur le caractere nul 
 
